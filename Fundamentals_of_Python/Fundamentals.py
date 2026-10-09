@@ -67,3 +67,35 @@ print(0 and 1, 1 and 0, False and 'hey', 'hi' and 'hey', [] and False, False and
 is
 in 
 """
+
+#strings
+name = "nithish "
+name += "kumar "
+print (name) # nithish kumar 
+
+"""
+String methods 
+
+isalpha()
+isalnum()
+isdecimal()
+lower()
+islower()
+upper()
+isupper()
+title()
+startswith()
+endswith()
+replace()
+split()
+join()
+find()
+"""
+
+print(name.upper()) #NITHISH KUMAR 
+print(name.title()) #Nithish Kumar 
+print("ku" in name) # True
+print (name.startswith("ni")) #True
+
+# slicing [start:end:-1]
+print(name[:4]) #nith
