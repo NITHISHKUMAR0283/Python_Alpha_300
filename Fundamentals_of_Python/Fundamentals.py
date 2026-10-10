@@ -99,3 +99,55 @@ print (name.startswith("ni")) #True
 
 # slicing [start:end:-1]
 print(name[:4]) #nith
+
+# complex 
+num = complex(2,3)
+print(num.real , num.imag)
+
+#build in function
+
+print(round(5.49,1))
+
+dogs = ["Roger", 1, "Syd", True, "Quincy", 7]
+
+dogs[2] = "Beau"
+dogs +="nithish"
+
+print(dogs[2:4])
+print(dogs)
+
+dogs.pop()
+dogs.insert(2,"i")
+print(dogs)
+
+# Tuples
+names = ("Roger", "Syd")
+
+names.index("Roger")
+print(names)
+
+# Dictionaries
+
+dog = { "name": "Roger", "age": 8 }
+
+dog["name"] = "Syd"
+
+print(dog)
+
+
+# Sets
+
+set1 = {"Roger", "Syd"}
+set2 = {"Roger"}
+
+mod = set1 - set2
+print(mod)
+
+# Functions
+
+def hello():
+    print('Hello!')
+
+hello()
+hello()
+hello()
