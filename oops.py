@@ -6,12 +6,11 @@ class Item():
         assert quantity>=0 , f"quantity is lesser than 0 ,received {quantity}"
         assert price >=0 , f"prices is lesser than 0 , received {price}"
 
-        self.name = name
+        self.__name = name
         self.quantity = quantity
         self.price = price
 
         Item.objects.append(self)
-
     def calculate_net (self):
         self.payRate = 0.2
         
@@ -19,8 +18,15 @@ class Item():
         # print(Item.payRate) # belongs to class
 
         return self.quantity*self.price
+    
+    @property
+    def name(self):
+        return self.__name
+    @name.setter
+    def name (self,name):
+        self.__name = name
     def __repr__(self):
-        return f"Item({self.name},{self.quantity},{self.price})"
+        return f"class_name :{self.__class__.__name__} name :{self.__name},{self.quantity},{self.price})"
     @classmethod
     def Instatantiate_from_csv(cls):
         with open("item.csv",'r') as f:
@@ -51,12 +57,18 @@ class Phone(Item):
         assert broken_phone>=0 , f"broken phone is lesser than 0 , received{broken_phone}"
 
         self.broken_phone=  broken_phone
-
-        Phone.objects.append(self)
+        Phone.Objects.append(self)
 
 Item.payRate= 0.9
 Item.Instatantiate_from_csv()
-print(Item.objects)
-print(Item.is_integer(8))
+# print(Item.is_integer(8))
 phone1 = Phone("lava",10,10.2,2)
-print(phone1.calculate_net())
+# print(phone1.calculate_net())
+
+# print(Item.objects)
+# print(Phone.Objects)
+
+
+#abstraction
+item1 = Item("phone",20,50.5)
+print(item1.name)
