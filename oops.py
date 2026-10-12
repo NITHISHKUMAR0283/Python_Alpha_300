@@ -1,3 +1,4 @@
+import csv
 class Item():
     objects = []
     def __init__(self,name:str,quantity:int,price:float=1):
@@ -20,14 +21,20 @@ class Item():
         return self.quantity*self.price
     def __repr__(self):
         return f"Item({self.name},{self.quantity},{self.price})"
+    @classmethod
+    def Instatantiate_from_csv(cls):
+        with open("item.csv",'r') as f:
+            reader = csv.DictReader(f)
+            items =list(reader)
+        for item in items:
+            Item(
+                name = str(item.get("name")),
+                quantity= int(item.get("quantity")),
+                price = float(item.get("price"))
+            )
 
-    
+
 
 Item.payRate= 0.9
-item1 = Item("Phone", 100, 1)
-item2 = Item("Laptop", 1000, 3)
-item3 = Item("Cable", 10, 5)
-item4 = Item("Mouse", 50, 5)
-item5 = Item("Keyboard", 75, 5)
-
+Item.Instatantiate_from_csv()
 print(Item.objects)
