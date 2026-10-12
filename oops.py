@@ -33,8 +33,15 @@ class Item():
                 price = float(item.get("price"))
             )
 
-
+    @staticmethod
+    def is_integer(num):
+        if isinstance(num,float):
+            return num.is_integer()
+        if isinstance(num,int):
+            return True
+        return False
 
 Item.payRate= 0.9
 Item.Instatantiate_from_csv()
 print(Item.objects)
+print(Item.is_integer(8))
